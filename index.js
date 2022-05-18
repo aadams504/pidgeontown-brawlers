@@ -26,6 +26,7 @@ class Sprite {
         }
         this.color = color;
         this.isAttacking;
+        this.health = 100;
     }
 
     draw() {
@@ -150,7 +151,8 @@ const animate = () => {
         player.isAttacking
         ) {
             player.isAttacking = false;
-            console.log('player attack')
+            enemy.health -= 20;
+            document.getElementById('enemy-health').style.width = enemy.health + '%';
     }
 
     if(rectangularCollision({
@@ -160,7 +162,8 @@ const animate = () => {
         enemy.isAttacking
         ) {
             enemy.isAttacking = false;
-            console.log('enemy attack')
+            player.health -= 20;
+            document.getElementById('player-health').style.width = player.health + '%';
     }
 }
 
@@ -206,7 +209,8 @@ window.addEventListener('keydown', (e) => {
             enemy.velocity.y = -20
             break
         case 'ArrowDown':
-            enemy.isAttacking = true;
+            enemy.attack()
+            break
     }
 })
 
