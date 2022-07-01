@@ -1,3 +1,3 @@
-# pidgeontown-brawlers
+# road-brawlers
 
 Two player fighting game made using vanilla javascript.
